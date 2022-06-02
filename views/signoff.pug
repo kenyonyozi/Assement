@@ -1,0 +1,69 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/bootstrap-5.1.3-dist copy/css/bootstrap.css')
+  script(src='/bootstrap-5.1.3-dist/js/bootstrap.bundle.js')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css')
+  script(src='/signoff.js')
+  link(rel='stylesheet' href='/dashs.css')
+  link(rel='stylesheet' href='/theme.css')
+  title sign off
+nav.navbar.navbar-light.bg-light.fixed-top
+  .container-fluid
+    h2.logo-two | Student Attendence 
+    
+// sign off table
+#container-two.container
+  #signoff
+    #signoff-button
+      button.btn.btn-success.button(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal3' data-bs-whatever='@fat')
+        | - Add Student
+      #exampleModal3.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+        .modal-dialog
+          #all.modal-content
+            .modal-header
+              h5#exampleModalLabel.modal-title
+                | STUDENT ATTENDENCE FORM
+              button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+            .modal-body
+              form#regform.row.g-3(name='register' method='POST' action='/signoff')
+                .col-md-6
+                  label.form-label(for='inputName4') Name
+                  input#inputName4.form-control(type='text' placeholder='Name' size='' name='name')
+                  span#userError
+                .col-md-6
+                  label.form-label(for='inputGrade') Grade
+                  input#inputGrade.form-control(type='text' placeholder='grade' size='' name='grade')
+                  span#gradeError
+                .col-md-6
+                  label.form-label(for='inputEmail') Email
+                  input#inputemail.form-control(type='text' placeholder='email' size='' name='email')
+                  span#emaillError
+                .modal-footer
+                  button.btn.btn-outline-secondary(type='button' data-bs-dismiss='modal')
+                    | Close
+                  button.btn.btn-outline-success(type='submit')
+                    | Sign Off
+  .table-responsive.table-responsive-data2
+    table.table.table-data2
+      thead
+        tr
+          th Name
+          th Grade
+          th Email
+      tbody
+        if signoffs.length 
+        each signoff in signoffs 
+         tr.tr-shadow
+            td #{signoff.name}
+            td #{signoff.grade}
+            td #{signoff.email}
+            //- td
+            //-  .table-data-feature
+            //-     form(method='get', action='/deleteuser/'+signoff._id)
+            //-       console.log(#{signoff._id})
+            //-       input(type="hidden" name='delete' value=signoff._id) 
+            //-       button.btn.item(type='submit' name='delete')
+            //-        i.bi.bi-trash(style='color:red;')

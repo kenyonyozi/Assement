@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon spp.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,10 +19,17 @@
   "homepage": "https://github.com/kenyonyozi/Assement#readme",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "express": "^4.17.3",
-    "express-validator": "^6.14.0",
+    "express-validator": "^5.3.1",
     "mongoose": "^6.2.10",
     "nodemon": "^2.0.15",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
   }
 }

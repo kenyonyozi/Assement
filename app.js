@@ -6,7 +6,9 @@ const expressValidator = require('express-validator');
 
 // importing the database
 const config = require('./config/database');
-const editroutes = require('./routes/editroutes');
+
+//calling the sign off route
+const signoffRoutes = require('./routes/signoffRoutes');
 
 
 // instaciating the app to use express
@@ -40,6 +42,8 @@ app.set('views', path.join(__dirname,'views'));
 app.use(express.urlencoded({extended:false}));
 // telling to use json formate when exposing the fields
 app.use(express.json());
+//telling bodyparser to use json formate when exposing the fields
+app.use(bodyParser.json());
 
 
 // find all my static files in public these include css images etc
@@ -47,7 +51,8 @@ app.use(express.static(path.join(__dirname,"public")));
 
 
 // app.use
-app.use('/',editroutes);
+app.use('/',signoffRoutes);
+
 
 
 //the message that appears in case someone searches for a route that doesnt exist on my server
