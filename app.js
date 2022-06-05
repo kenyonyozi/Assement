@@ -8,7 +8,7 @@ const expressValidator = require('express-validator');
 const config = require('./config/database');
 
 //calling the sign off route
-const signoffRoutes = require('./routes/signoffRoutes');
+const signoffRoutes = require('./app/routes/signoffRoutes');
 
 
 // instaciating the app to use express
@@ -65,3 +65,5 @@ app.get('*', (req, res) => {
 app.listen(3000,()=>{
     console.log('server is listening at port 3000');
 });
+
+module.exports = app;
