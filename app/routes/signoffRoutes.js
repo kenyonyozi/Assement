@@ -5,10 +5,6 @@ const mongoose = require('mongoose');
 
 const Signoff = require('../models/Signoff')
 router.use (expressValidator());
-// handling routes of home
-// router.get('/signoff',(req,res)=>{
-//     res.render('signoff')
-// });
 
 
 //handles fetching client data from the db to populate the table
@@ -42,7 +38,6 @@ router.post('/signoff',(req,res)=>{
     // handling errors
     // incase there is an error we serve back the form
     const errors = req.validationErrors();
-    console.log();
     if (errors) {
         res.render('/signoff')
     }
@@ -60,7 +55,6 @@ router.post('/signoff',(req,res)=>{
         newSignoff.save((err) =>{
 
             if(err){
-                console.error(err);
                 return;
             }
             else{
