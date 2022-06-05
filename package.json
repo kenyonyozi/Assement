@@ -1,5 +1,5 @@
 {
-  "name": "assement",
+  "name": "assessment",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/kenyonyozi/Assement.git"
   },
-  "author": "nina",
+  "author": "nina and kylie",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kenyonyozi/Assement/issues"
