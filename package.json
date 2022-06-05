@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "babel-node app.js",
-    "coverage": "mocha",
+    "test": "mocha app/test/*.js",
     "dev-start": "nodemon --exec babel-node --presets @babel/preset-env app.js",
-    "test": "nyc --reporter=html --reporter=text --cache mocha app/test/*.js --require @babel/register --recursive --no-timeout --exit"
+    "coverage": "nyc --reporter=html --reporter=text --cache mocha app/test/*.js --require @babel/register --recursive --no-timeout --exit"
   },
   "repository": {
     "type": "git",
