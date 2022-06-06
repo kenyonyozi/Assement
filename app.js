@@ -55,7 +55,7 @@ const app = express()
 // app.use('/',signoffRoutes);
 
 app.get('/', (req, res)=> {
-    res.status(200).send('Happy class');
+    res.status(200).send('Happy classes.');
    });
    
 
