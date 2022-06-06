@@ -10,10 +10,6 @@ install: npm install
 services:
   - mongodb
 
-before_script:
-  - "sleep 15"
-  - "mongo test --eval 'db.addUser("test", "test");'"
-
 script: 
   - npm run test
 
