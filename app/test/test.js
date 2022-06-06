@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 
-describe('POST/signoff', () => {
+describe('GET/signoff', () => {
     it('Should return the user if signed off with these fields', (done) => {
         const newSignoff = {
             name: 'blue',
@@ -17,11 +17,8 @@ describe('POST/signoff', () => {
 
         chai.request(app)
             .get('/signoff')
-            // .send(newSignoff)
             .end((err, res) => {
                 if (err) done(err);
-                // expect(res).have.status(200);
-                // expect(res.body.status).to.deep.equal(200);
                 done();
             });
     });
