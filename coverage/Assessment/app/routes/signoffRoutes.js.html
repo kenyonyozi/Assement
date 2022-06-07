@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52% </span>
+                <span class="strong">52.17% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/25</span>
+                <span class='fraction'>12/23</span>
             </div>
         
             
@@ -45,7 +45,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/24</span>
+                <span class='fraction'>11/22</span>
             </div>
         
             
@@ -124,20 +124,7 @@
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -152,7 +139,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,18 +186,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -233,7 +207,6 @@ router.get('/signoff', <span class="branch-2 cbranch-no" title="branch not cover
     try {
         // helps return all the members in the collection clients
         const data = await Signoff.find({}).sort({$natural:-1});
-        console.log('&gt;&gt;&gt;&gt;&gt;&gt; all clients',data);
         // gives us the file dash and come with the client data or client has same info with data
         res.render('signoff', {signoffs : data})
       } catch(error) {
@@ -247,7 +220,7 @@ router.get('/signoff', <span class="branch-2 cbranch-no" title="branch not cover
 });
 // handling routes of dash for post to access reg form on route /dash
 // post from frontend using the dash route to backend 
-router.post('/signoff',<span class="fstat-no" title="function not covered" >(r</span>eq,res)=&gt;{
+router.post('/',<span class="fstat-no" title="function not covered" >(r</span>eq,res)=&gt;{
     // declaring the variables in the pug file name
     // we are requesting node js to foward the data and the body with the name given only uses name
     const name = <span class="cstat-no" title="statement not covered" >req.body.name;</span>
@@ -259,7 +232,7 @@ router.post('/signoff',<span class="fstat-no" title="function not covered" >(r</
     // incase there is an error we serve back the form
     const errors = <span class="cstat-no" title="statement not covered" >req.</span>validationErrors();
 <span class="cstat-no" title="statement not covered" >    if (errors) {</span>
-<span class="cstat-no" title="statement not covered" >        res.</span>render('/signoff')
+<span class="cstat-no" title="statement not covered" >        res.</span>render('/')
     }
     else{
         // new variable asssigin it 
@@ -280,23 +253,11 @@ router.post('/signoff',<span class="fstat-no" title="function not covered" >(r</
             else{
                 // we first flash a message confirm save in data base
                 // go to dashboard since user signed up
-<span class="cstat-no" title="statement not covered" >                console.</span>log('data saved in database', );
 <span class="cstat-no" title="statement not covered" >                res.</span>redirect('/signoff')
             }
         })
     }
 });
-&nbsp;
-// delete user
-// router.get('/deleteuser/:id',async (req,res)=&gt;{
-//     try {
-//         // console.log('client')
-//         await Signoff.deleteOne({_id:req.params.id})
-//         res.redirect('back')
-//     } catch (error) {
-//         res.status(400).send('unable to delete user')
-//     }
-// });
 &nbsp;
 module.exports = router;
 // exporting the router</pre></td></tr></table></pre>
@@ -306,7 +267,7 @@ module.exports = router;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jun 06 2022 10:43:11 GMT+0300 (East Africa Time)
+                at Wed Jun 08 2022 00:13:44 GMT+0300 (East Africa Time)
             </div>
         </div>
         <script src="..\..\..\prettify.js"></script>

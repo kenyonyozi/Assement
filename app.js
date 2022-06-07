@@ -5,12 +5,11 @@ const mongoose = require('mongoose');
 const path = require('path');
 const expressValidator = require('express-validator');
 
-// importing the database
-// const config = require('./config/database');
-
 //calling the sign off route
-// const signoffRoutes = require('./app/routes/signoffRoutes');
+const signoffRoutes = require('./app/routes/signoffRoutes');
 
+const { PORT } = process.env
+const { WELCOME_MESSAGE, DATABASE_URL } = process.env
 
 // instaciating the app to use express
 const app = express()
@@ -18,56 +17,46 @@ const app = express()
 
 // middleware
 
-// established connection
-// mongoose.connect(config.database);
-// const db = mongoose.connection;
-
-// if ok console log message
-// db.once('open',()=>{
-//     console.log('connected to mongodb')
-// });
-// // telling the console if theres an error
-// db.on('error',(err)=>{
-//     console.log(ErrorEvent)
-// });
-
-
 // must be used during pug 
 // setting an engine sice we using pug
-// app.engine('pug', require('pug').__express); 
-// app.set('view engine','pug');
-// app.set('views', path.join(__dirname,'views'));
+app.engine('pug', require('pug').__express); 
+app.set('view engine','pug');
+app.set('views', path.join(__dirname,'views'));
 
 
 // extended means when node uses body parser get the forms the way they are and focus on input fields
-// app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:false}));
 // // telling to use json formate when exposing the fields
-// app.use(express.json());
+app.use(express.json());
 // //telling bodyparser to use json formate when exposing the fields
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 
 // // find all my static files in public these include css images etc
-// app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,"public")));
 
 
 // app.use
-// app.use('/',signoffRoutes);
+app.use('/',signoffRoutes);
 
-app.get('/', (req, res)=> {
-    res.status(200).send('Happy classes.');
-   });
-   
 
 //the message that appears in case someone searches for a route that doesnt exist on my server
 app.get('*', (req, res) => {
     res.status(404).send('no such page')
 });
-  
 
-const port = process.env.PORT || 3000
-app.listen(port,()=>{
-    console.log(`server is listening at port ${port}`);
-});
+
+  
+// spin up the server 
+mongoose.connect(DATABASE_URL).then(() => {
+    // successful connection
+    app.listen(PORT, ()=> {
+        let message = `${WELCOME_MESSAGE} ${PORT}`
+        console.log(message)
+    })
+}).catch(error => {
+    console.error("Failed to start the server due to : ",error)
+})
+  
 
 module.exports = app;
