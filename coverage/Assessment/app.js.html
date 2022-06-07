@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.59% </span>
+                <span class="strong">92.86% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/27</span>
+                <span class='fraction'>26/28</span>
             </div>
         
             
@@ -43,9 +43,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.59% </span>
+                <span class="strong">92.31% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/27</span>
+                <span class='fraction'>24/26</span>
             </div>
         
             
@@ -117,14 +117,8 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -133,27 +127,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,7 +157,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,42 +166,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express');
+require('dotenv').config()
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const expressValidator = require('express-validator');
 &nbsp;
-// importing the database
-const config = require('./config/database');
-&nbsp;
 //calling the sign off route
 const signoffRoutes = require('./app/routes/signoffRoutes');
 &nbsp;
+const { PORT } = process.env
+const { WELCOME_MESSAGE, DATABASE_URL } = process.env
 &nbsp;
 // instaciating the app to use express
 const app = express()
 &nbsp;
 &nbsp;
 // middleware
-&nbsp;
-// established connection
-mongoose.connect(config.database);
-const db = mongoose.connection;
-&nbsp;
-// if ok console log message
-db.once('open',()=&gt;{
-    console.log('connected to mongodb')
-});
-// telling the console if theres an error
-db.on('error',<span class="fstat-no" title="function not covered" >(e</span>rr)=&gt;{
-<span class="cstat-no" title="statement not covered" >    console.</span>log(ErrorEvent)
-});
-&nbsp;
 &nbsp;
 // must be used during pug 
 // setting an engine sice we using pug
@@ -234,13 +206,13 @@ app.set('views', path.join(__dirname,'views'));
 &nbsp;
 // extended means when node uses body parser get the forms the way they are and focus on input fields
 app.use(express.urlencoded({extended:false}));
-// telling to use json formate when exposing the fields
+// // telling to use json formate when exposing the fields
 app.use(express.json());
-//telling bodyparser to use json formate when exposing the fields
+// //telling bodyparser to use json formate when exposing the fields
 app.use(bodyParser.json());
 &nbsp;
 &nbsp;
-// find all my static files in public these include css images etc
+// // find all my static files in public these include css images etc
 app.use(express.static(path.join(__dirname,"public")));
 &nbsp;
 &nbsp;
@@ -248,17 +220,24 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use('/',signoffRoutes);
 &nbsp;
 &nbsp;
-&nbsp;
 //the message that appears in case someone searches for a route that doesnt exist on my server
 app.get('*', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >    res.</span>status(404).send('no such page')
 });
+&nbsp;
+&nbsp;
   
-&nbsp;
-&nbsp;
-app.listen(3000,()=&gt;{
-    console.log('server is listening at port 3000');
-});
+// spin up the server 
+mongoose.connect(DATABASE_URL).then(() =&gt; {
+    // successful connection
+    app.listen(PORT, ()=&gt; {
+        let message = `${WELCOME_MESSAGE} ${PORT}`
+        console.log(message)
+    })
+}).catch(<span class="fstat-no" title="function not covered" >error </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >    console.</span>error("Failed to start the server due to : ",error)
+})
+  
 &nbsp;
 module.exports = app;</pre></td></tr></table></pre>
 
@@ -267,7 +246,7 @@ module.exports = app;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jun 06 2022 10:43:11 GMT+0300 (East Africa Time)
+                at Wed Jun 08 2022 00:13:44 GMT+0300 (East Africa Time)
             </div>
         </div>
         <script src="..\prettify.js"></script>
