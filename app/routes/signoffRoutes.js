@@ -3,7 +3,7 @@ const router = express.Router();
 const expressValidator= require('express-validator');
 const mongoose = require('mongoose');
 
-const Signoff = require('../models/Signoff')
+const Signoff = require('../models/signoff')
 router.use (expressValidator());
 
 
