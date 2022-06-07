@@ -8,12 +8,11 @@ router.use (expressValidator());
 
 
 //handles fetching client data from the db to populate the table
-router.get('/', async(req,res)=>{
+router.get('/signoff', async(req,res)=>{
     // to pick data from the 
     try {
         // helps return all the members in the collection clients
         const data = await Signoff.find({}).sort({$natural:-1});
-        console.log('>>>>>> all clients',data);
         // gives us the file dash and come with the client data or client has same info with data
         res.render('signoff', {signoffs : data})
       } catch(error) {
@@ -60,23 +59,11 @@ router.post('/',(req,res)=>{
             else{
                 // we first flash a message confirm save in data base
                 // go to dashboard since user signed up
-                console.log('data saved in database', );
-                res.redirect('/')
+                res.redirect('/signoff')
             }
         })
     }
 });
-
-// delete user
-// router.get('/deleteuser/:id',async (req,res)=>{
-//     try {
-//         // console.log('client')
-//         await Signoff.deleteOne({_id:req.params.id})
-//         res.redirect('back')
-//     } catch (error) {
-//         res.status(400).send('unable to delete user')
-//     }
-// });
 
 module.exports = router;
 // exporting the router
