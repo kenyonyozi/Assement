@@ -9,10 +9,10 @@ head
   script(src='/signoff.js')
   link(rel='stylesheet' href='/dashs.css')
   link(rel='stylesheet' href='/theme.css')
-  title sign off
+  title STUDENTS ATTENTANCE
 nav.navbar.navbar-light.bg-light.fixed-top
   .container-fluid
-    h2.logo-two | Student Attendence 
+    h2.logo-two | Students Attendence 
     
 // sign off table
 #container-two.container
@@ -25,7 +25,7 @@ nav.navbar.navbar-light.bg-light.fixed-top
           #all.modal-content
             .modal-header
               h5#exampleModalLabel.modal-title
-                | STUDENT ATTENDENCE FORM
+                | STUDENTS ATTENDENCE FORM
               button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
             .modal-body
               form#regform.row.g-3(name='register' method='POST' action='/')
@@ -60,10 +60,3 @@ nav.navbar.navbar-light.bg-light.fixed-top
             td #{signoff.name}
             td #{signoff.grade}
             td #{signoff.email}
-            //- td
-            //-  .table-data-feature
-            //-     form(method='get', action='/deleteuser/'+signoff._id)
-            //-       console.log(#{signoff._id})
-            //-       input(type="hidden" name='delete' value=signoff._id) 
-            //-       button.btn.item(type='submit' name='delete')
-            //-        i.bi.bi-trash(style='color:red;')
