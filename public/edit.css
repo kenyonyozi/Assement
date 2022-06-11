@@ -1,0 +1,17 @@
+.body{
+    background-color: rgb(247, 230, 230);
+}
+.kontainer{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 40px;
+}
+.heading h2{
+    margin-left: 100px;
+    margin-bottom: 30px;
+    color: #2eb875;
+}
+#button{
+    margin-top: 20px;
+    margin-left: 50px;
+}

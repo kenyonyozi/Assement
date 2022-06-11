@@ -1,0 +1,33 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/bootstrap-5.1.3-dist copy/css/bootstrap.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  // <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  link(rel='stylesheet' href='/logins.css')
+  title Login
+// <div class="container-main">
+.row
+  .col
+    img(src='/img/green car.png')
+  .col.align-self-center
+    .LogIn-box
+      h2.logo
+        a(href='/') | ParkVille
+      form#registerform(name='loginRegister' method='POST' action='/login')
+        label Email
+        input#email(name='email' type='email' size='50' onblur='usersE()' placeholder='john.doe@gmail.com')
+        #email3.text-danger.font-weight-bold.small
+        label Password
+        input#password(name='password' type='password' onblur='passVal(5,12)' placeholder='')
+        #pwd.text-danger.font-weight-bold.small
+        button#signinButton.btn.btn-success.btn-lg.btn-block(name='' type='submit' value='' style='width:100%; margin-top: 20px; font-weight: bold;')
+          | LOGIN 
+          i.fa.fa-arrow-right(aria-hidden='true')
+      p
+        | No account?
+        a(href='/signup')  Signup here.
+script(src='bootstrap-5.1.3-dist/js/bootstrap.bundle.js')
+script(src='/loginvalidation.js')

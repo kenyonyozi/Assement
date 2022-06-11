@@ -1,0 +1,42 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/bootstrap-5.1.3-dist copy/css/bootstrap.css')
+  link(rel='stylesheet' href='/signups.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='path/to/font-awesome/css/font-awesome.min.css')
+  title Signup
+// <div class="container-main">
+.row
+  .col
+    img(src='/img/green car.png')
+  .col.align-self-center
+    .SignUp-box
+      h2.logo
+        a(href='/') | ParkVille
+      form#registerform(name='register' method='POST' action='/signup' onsubmit)
+        label(for='firstname') First Name
+        input#firstname(name='firstname' type='text' size= "50" onblur="userN()" placeholder='John')
+        #fName.text-danger.font-weight-bold.small
+        label Last Name
+        input#lastname(name='lastname' type='text' size= "50" onblur="userL()" placeholder='Doe')
+        #lName.text-danger.font-weight-bold.small
+        label Email
+        input#email(name='email' type='email' size= "50" onblur="validateUserEmail()" placeholder='john.doe@gmail.com')
+        #email2.text-danger.font-weight-bold.small
+        label Password
+        input#password(name='password' type='password' size= "50" onblur="passVal(8,12)" placeholder='********' value='')
+        #pwd.text-danger.font-weight-bold.small
+        label Confirm Password
+        input#confirmpassword(name='confirmpassword' type='password' size= "50" onblur="passId()" placeholder='*********' value='')
+        #pwdd.text-danger.font-weight-bold.small
+        button#submit.btn.btn-success.btn-lg.btn-block(name='' type='submit' style='width:100%; margin-top: 20px; font-weight: bold;' value='')
+          | SIGNUP 
+          i.fa.fa-arrow-right(aria-hidden='true')
+      p
+        | Already have an account?
+        a(href='/login')  Login here.
+// <script src="signup.js"></script>
+script(src='/signupValidation.js')

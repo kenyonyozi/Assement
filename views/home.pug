@@ -1,0 +1,67 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/homes.css')
+  link(rel='stylesheet' href='/bootstrap-5.1.3-dist copy/css/bootstrap.css')
+  script(src='/bootstrap-5.1.3-dist/js/bootstrap.bundle.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='path/to/font-awesome/css/font-awesome.min.css')
+  link(rel='stylesheet' type='text/css' href='your_website_domain/css_root/flaticon.css')
+  title.logo | ParkVille
+nav.navbar.navbar-light.bg-light.fixed-top
+  .container
+    h2.logo | ParkVille
+  .button
+    a(href='/login')
+      button.btn.btn-outline-success(type='button') Login
+  .button
+    a(href='/signup')
+      button.btn.btn-success(type='button') Signup
+// content
+.content
+  .content-title
+    h2
+      | Parking, 
+      br
+      |  Car Tyre and 
+      br
+      |  Battery services.
+    h6
+      | REQUEST A PRICELIST 
+      i.fa.fa-arrow-right(aria-hidden='true')
+  .div
+    img(src='/img/taxi.jpeg' alt='' height='100%' width='700px')
+// sec content
+.heading
+  h3  ALL YOUR PARKING,CAR TYRE AND BATTERY SERVICES
+// third content
+#bg-container.container
+  .row
+    .col
+      img(src='/img/traffic-jam.png' width='100px' height='100px' alt='')
+      h3 Car Parking
+      p Secure parking services for cars &amp; bodabodas.
+    .col
+      img(src='/img/battery.png' width='100px' height='100px' alt='')
+      h3 Battery Service
+      p Automotive Lead - Acid Battery servicing.
+    .col
+      img(src='/img/tyres.png' width='100px' height='100px' alt='')
+      h3 Car Tyre Service
+      p Authorised car tyre and valve service center.
+div
+  hr(style='height:2px;border-width:0;color:#2eb875;background-color: #2eb875')
+// footer
+footer
+  .footer
+    .footer-header
+      h1.down.logo | ParkVille
+      p &copy;2022 ParkVille
+    .fa-icons.socials
+      i.fa.fa-twitter.social-icons(aria-hidden='true' style='font-size:30px;')
+      i.fa.fa-facebook-official.social-icons(aria-hidden='true' style='font-size:30px;')
+      i.fa.fa-instagram.social-icons(aria-hidden='true' style='font-size:30px;')
+      i.fa.fa-google-plus(aria-hidden='true' style='font-size:24px;')
+script(src='home.js')

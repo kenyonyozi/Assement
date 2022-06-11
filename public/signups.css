@@ -1,0 +1,61 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+
+.logo{
+    color: #2eb875;
+    font-weight: 1000;
+    font-size: 28px;
+    text-align: center;
+    padding-top: 10px;
+    margin-right: 50px;
+}
+  
+img {
+    width: 700px;
+    height: 700px;
+}
+
+form{
+    width: 400px;
+    margin-left: 100px;
+    margin-top: 0px;
+}
+
+form label{
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+form input{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid grey;
+    border-radius: 6px;
+    outline: none;
+}
+
+p{
+    text-align: center;
+    font-size: 15px;
+    color:#2eb875;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.SignUp-box a {
+    text-decoration: none;
+    color: #2eb875;
+}
+ 
+/* p a{
+    color:darkorchid;
+    text-decoration: none;
+    font-weight: bold;
+} */
