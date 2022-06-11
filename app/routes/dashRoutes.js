@@ -21,19 +21,19 @@ router.get('/dash', async(req,res)=>{
         try {
             // helps return all the members in the collection clients
             const data = await Client.find({}).sort({$natural:-1});
-              let totalEarnings = await Client.aggregate([
-              {$group:{_id:'$all',
-              totalParking:{$sum:'$paidprice'},
-              totalCartyre:{$sum:'$cartyreprice'},
-              totalBattery:{$sum:'$batteryprice'},
-            }}]);
+            //   let totalEarnings = await Client.aggregate([
+            //   {$group:{_id:'$all',
+            //   totalParking:{$sum:'$paidprice'},
+            //   totalCartyre:{$sum:'$cartyreprice'},
+            //   totalBattery:{$sum:'$batteryprice'},
+            // }}]);
             // values parking from the same parking
             // console.log('>>>>>> all clients',data);
             // console.log('collection of earning', totalEarnings)
             // gives us the file dash and come with the client data or client has same info with data
             res.render('dash', {
               clients : data,loggedinuser:req.session.user,
-              total:totalEarnings[0],
+              // total:totalEarnings[0],
             });
           } catch(error) {
             return res.status(400).send(
